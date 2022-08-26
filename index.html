@@ -125,7 +125,7 @@
           newInstance.SendMessage('VKSDK', 'RewardGetting',JSON.stringify(data.result));})
       }
 	  
-	  function posting(){
+	   function posting(){
         vkBridge.send("VKWebAppShowWallPostBox", {
 						"message": "Тестовая запись",
 						"attachments": "https://vk.com/public215578269"
@@ -142,7 +142,6 @@
          .then(data => console.log(data.success))  
         .catch(error => console.log(error));
       }
-	  
       document.body.appendChild(script);
     </script>
   </body>
