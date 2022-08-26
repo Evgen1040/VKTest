@@ -127,9 +127,11 @@
 	  
 	   function posting(){
         vkBridge.send("VKWebAppShowWallPostBox", {
-						"message": "Тестовая запись",
-						"attachments": "photo-215578269_457239018"
-						 
+		"message": "Hello!",
+		"attachments": [
+    			"https://vk.com/public215578269,",
+   			"photo-215578269_457239018"
+  		]				 				 
 		});
       }
 	  
