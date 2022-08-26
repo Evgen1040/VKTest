@@ -125,6 +125,24 @@
           newInstance.SendMessage('VKSDK', 'RewardGetting',JSON.stringify(data.result));})
       }
 	  
+	  function posting(){
+        vkBridge.send("VKWebAppShowWallPostBox", {
+						"message": "Тестовая запись",
+						"attachments": "https://vk.com/public215578269"
+						"attachments": "photo-215578269_457239018"
+		});
+      }
+	  
+	  function group(){
+        vkBridge.send("VKWebAppJoinGroup", {"group_id": 215578269});
+      }
+	  
+	  function friends(){
+       vkBridge.send("VKWebAppShowInviteBox", {})
+         .then(data => console.log(data.success))  
+        .catch(error => console.log(error));
+      }
+	  
       document.body.appendChild(script);
     </script>
   </body>
