@@ -120,14 +120,19 @@
       }
 
       function showRewardedAd(){
-        vkBridge.send('VKWebAppShowNativeAds',{ad_format:"reward"}).then(data => {
+        vkBridge.send('VKWebAppShowNativeAds',{ad_format:"reward"})
+		.then(data => {
           console.log(data);
-          newInstance.SendMessage('VKSDK', 'RewardGetting',JSON.stringify(data.result));})
+          newInstance.SendMessage('VKSDK', 'RewardGetting', data.result);})
+		  
+		.catch(error =>{
+		  console.log(error);
+		  newInstance.SendMessage('VKSDK', 'RewardGetError', false);})
       }
 	  
-	   function posting(){
+	   function posting(level){
         vkBridge.send("VKWebAppShowWallPostBox", {
-		"message": "Hello!",
+		"message": "Ура! Я наконец то дошел до " + level + " Уровня!! А Ты сможешь?",
 		"attachments": [
     			"https://vk.com/public215578269",
    			"photo-215578269_457239018"
@@ -144,6 +149,7 @@
          .then(data => console.log(data.success))  
         .catch(error => console.log(error));
       }
+	  
       document.body.appendChild(script);
     </script>
   </body>
