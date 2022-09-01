@@ -122,7 +122,7 @@
       function showRewardedAd(){
         vkBridge.send('VKWebAppShowNativeAds',{ad_format:"reward"})
 		.then(data => {
-          console.log(data);
+          console.log(data.result);
           newInstance.SendMessage('VKSDK', 'RewardGetting', JSON.stringify(data.result));})
 		  
 		.catch(error =>{
